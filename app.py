@@ -6,6 +6,7 @@ from models import User
 from db import engine
 
 app = Flask(__name__)
+app.config["SERVER_NAME"] = "0.0.0.0:10000"
 CORS(app, origins=["http://127.0.0.1:*", "http://localhost:*"])
 
 @app.route("/")
