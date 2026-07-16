@@ -6,7 +6,6 @@ from models import User
 from db import engine
 
 app = Flask(__name__)
-app.config["SERVER_NAME"] = "0.0.0.0:10000"
 CORS(app, origins=["http://127.0.0.1:*", "http://localhost:*"])
 
 @app.route("/")
@@ -55,3 +54,9 @@ def delete_user(id):
         session.commit()
         return {"status": "deleted", "id": id}, 200
     
+
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=10000
+    )
